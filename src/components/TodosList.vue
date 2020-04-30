@@ -11,27 +11,7 @@
 
   export default {
     name: 'TodosList',
-    data() {
-      return {
-        todos: [
-          {
-            id: 1,
-            name: 'Take a walk',
-            isCompleted: false,
-          },
-          {
-            id: 2,
-            name: 'Take a shower',
-            isCompleted: true,
-          },
-          {
-            id: 3,
-            name: 'Go to sleep',
-            isCompleted: false,
-          }
-        ]
-      }
-    },
+    props: ['todos'],
     components: {
       Todo,
     }

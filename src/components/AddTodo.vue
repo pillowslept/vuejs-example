@@ -20,7 +20,7 @@
     },
     methods: {
       addTodo() {
-        this.$emit('addFilter', { name: this.name, isCompleted: false });
+        this.$emit('addTodo', { name: this.name, isCompleted: false });
         this.name = '';
       }
     },

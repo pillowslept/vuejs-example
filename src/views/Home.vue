@@ -1,7 +1,7 @@
 <template>
   <div class="home">
-    <AddTodo />
-    <TodosList />
+    <AddTodo v-on:addTodo="addTodo" />
+    <TodosList v-bind:todos="todos" />
     <hr />
     <TodoActions />
   </div>
@@ -15,10 +15,39 @@ import TodoActions from '@/components/TodoActions'
 
 export default {
   name: 'Home',
+  data() {
+    return {
+      todos: [
+        {
+          id: 1,
+          name: 'Take a walk',
+          isCompleted: false,
+        },
+        {
+          id: 2,
+          name: 'Take a shower',
+          isCompleted: true,
+        },
+        {
+          id: 3,
+          name: 'Go to sleep',
+          isCompleted: false,
+        }
+      ]
+    }
+  },
   components: {
     AddTodo,
     TodoActions,
     TodosList,
+  },
+  methods: {
+    addTodo(todo) {
+      this.todos = [...this.todos, { ...todo, id: Math.floor(Math.random() * 100) }]
+    },
+    deleteTodo(todo) {
+      this.todos = this.filter(({ id }) => id !== todo.id);
+    }
   }
 }
 </script>
