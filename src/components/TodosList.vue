@@ -1,9 +1,8 @@
 <template>
   <div class="todos">
-    <Todo />
-    <Todo />
-    <Todo />
-    <Todo />
+    <div v-bind:key="todo.id" v-for="todo in todos">
+      <Todo v-bind:todo="todo" />
+    </div>
   </div>
 </template>
 
@@ -12,6 +11,27 @@
 
   export default {
     name: 'TodosList',
+    data() {
+      return {
+        todos: [
+          {
+            id: 1,
+            name: 'Take a walk',
+            isCompleted: false,
+          },
+          {
+            id: 2,
+            name: 'Take a shower',
+            isCompleted: true,
+          },
+          {
+            id: 3,
+            name: 'Go to sleep',
+            isCompleted: false,
+          }
+        ]
+      }
+    },
     components: {
       Todo,
     }
