@@ -1,7 +1,7 @@
 <template>
   <div class="home">
     <AddTodo v-on:addTodo="addTodo" />
-    <TodosList v-bind:todos="todos" v-on:deleteTodo="deleteTodo" />
+    <TodosList v-bind:todos="todos" v-on:deleteTodo="deleteTodo" v-on:updateFilters="updateFilters" />
     <Message v-if="!todos.length" msg="What's to be done" />
     <hr />
     <TodoActions v-on:updateFilter="updateFilter" />

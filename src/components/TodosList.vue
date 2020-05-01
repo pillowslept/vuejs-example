@@ -1,7 +1,7 @@
 <template>
   <div class="todos">
     <div v-bind:key="todo.id" v-for="todo in todos">
-      <Todo v-bind:todo="todo" v-on:deleteTodo="deleteTodo" />
+      <Todo v-bind:todo="todo" v-on:deleteTodo="deleteTodo" v-on:updateFilters="updateFilters" />
     </div>
   </div>
 </template>
@@ -18,6 +18,9 @@
     methods: {
       deleteTodo(todo) {
         this.$emit('deleteTodo', todo);
+      },
+      updateFilters() {
+        this.$emit('updateFilters');
       }
     }
   }

@@ -1,6 +1,6 @@
 <template>
   <div class="todo">
-    <input v-model="todo.isCompleted" type="checkbox" />
+    <input v-model="todo.isCompleted" @change="updateFilters" type="checkbox" />
     <span class="name" v-bind:class="{ 'completed': todo.isCompleted }">{{ todo.name }}</span>
     <button @click="deleteTodo">X</button>
   </div>
@@ -13,6 +13,9 @@
     methods: {
       deleteTodo() {
         this.$emit('deleteTodo', this.todo);
+      },
+      updateFilters() {
+        this.$emit('updateFilters');
       }
     }
   }
