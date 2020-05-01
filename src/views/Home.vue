@@ -69,22 +69,3 @@ export default {
   }
 }
 </script>
-
-<style scoped>
-  .home {
-    width: 50%;
-    margin: 0 auto;
-  }
-
-  @media only screen and (max-width: 950px) {
-    .home {
-      width: 70%;
-    }
-  }
-
-  @media only screen and (max-width: 500px) {
-    .home {
-      width: 90%;
-    }
-  }
-</style>

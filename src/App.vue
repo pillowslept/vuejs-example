@@ -25,6 +25,20 @@
 
   .main-container {
     margin-top: 1rem;
+    width: 50%;
+    margin: 0 auto;
+  }
+
+  @media only screen and (max-width: 950px) {
+    .main-container {
+      width: 70%;
+    }
+  }
+
+  @media only screen and (max-width: 500px) {
+    .main-container {
+      width: 90%;
+    }
   }
 
   #app {
