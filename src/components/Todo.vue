@@ -7,18 +7,18 @@
 </template>
 
 <script>
-  export default {
-    name: 'Todo',
-    props: ['todo'],
-    methods: {
-      deleteTodo() {
-        this.$emit('deleteTodo', this.todo);
-      },
-      updateFilters() {
-        this.$emit('updateFilters');
-      }
+export default {
+  name: 'Todo',
+  props: ['todo'],
+  methods: {
+    deleteTodo() {
+      this.$emit('deleteTodo', this.todo);
+    },
+    updateFilters() {
+      this.$emit('updateFilters');
     }
   }
+};
 </script>
 
 <style scoped>

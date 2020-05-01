@@ -1,32 +1,33 @@
 <template>
   <div class="add">
-    <input v-on:keyup.enter="addTodo"  v-model="name" type="text" placeholder="Write the todo name here (5 Characters minimum)" />
+    <input v-on:keyup.enter="addTodo"  v-model="name" type="text"
+      placeholder="Write the todo name here (5 Characters minimum)" />
     <button :disabled="!isValid" @click="addTodo">Add</button>
   </div>
 </template>
 
 <script>
-  export default {
-    name: 'AddTodo',
-    data() {
-      return {
-        name: ''
+export default {
+  name: 'AddTodo',
+  data() {
+    return {
+      name: ''
+    };
+  },
+  computed: {
+    isValid() {
+      return this.name && this.name.length > 5;
+    }
+  },
+  methods: {
+    addTodo() {
+      if (this.isValid) {
+        this.$emit('addTodo', { name: this.name, isCompleted: false });
+        this.name = '';
       }
-    },
-    computed: {
-      isValid() {
-        return this.name && this.name.length > 5;
-      }
-    },
-    methods: {
-      addTodo() {
-        if (this.isValid) {
-          this.$emit('addTodo', { name: this.name, isCompleted: false });
-          this.name = '';
-        }
-      }
-    },
-  }
+    }
+  },
+};
 </script>
 
 <style scoped>

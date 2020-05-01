@@ -9,12 +9,11 @@
 </template>
 
 <script>
-// @ is an alias to /src
-import { v4 as uuidv4 } from 'uuid'
-import AddTodo from '@/components/AddTodo'
-import TodosList from '@/components/TodosList'
-import TodoActions from '@/components/TodoActions'
-import Message from '@/components/Message'
+import { v4 as uuidv4 } from 'uuid';
+import AddTodo from '@/components/AddTodo';
+import TodosList from '@/components/TodosList';
+import TodoActions from '@/components/TodoActions';
+import Message from '@/components/Message';
 
 export default {
   name: 'Home',
@@ -23,7 +22,7 @@ export default {
       allTodos: [],
       todos: [],
       filter: ''
-    }
+    };
   },
   components: {
     AddTodo,
@@ -46,8 +45,8 @@ export default {
     },
     updateFilters() {
       this.todos = this.allTodos.filter(({ isCompleted }) =>
-        this.filter === 'completed' ? isCompleted : (this.filter === 'toDo' ? !isCompleted : this.filter === ''))
+        this.filter === 'completed' ? isCompleted : (this.filter === 'toDo' ? !isCompleted : this.filter === ''));
     }
   }
-}
+};
 </script>

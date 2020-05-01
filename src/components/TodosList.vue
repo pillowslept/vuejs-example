@@ -7,23 +7,23 @@
 </template>
 
 <script>
-  import Todo from '@/components/Todo'
+import Todo from '@/components/Todo';
 
-  export default {
-    name: 'TodosList',
-    props: ['todos'],
-    components: {
-      Todo,
+export default {
+  name: 'TodosList',
+  props: ['todos'],
+  components: {
+    Todo,
+  },
+  methods: {
+    deleteTodo(todo) {
+      this.$emit('deleteTodo', todo);
     },
-    methods: {
-      deleteTodo(todo) {
-        this.$emit('deleteTodo', todo);
-      },
-      updateFilters() {
-        this.$emit('updateFilters');
-      }
+    updateFilters() {
+      this.$emit('updateFilters');
     }
   }
+};
 </script>
 
 <style scoped>

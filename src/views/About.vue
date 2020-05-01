@@ -13,14 +13,14 @@
 
 <script>
 // @ is an alias to /src
-import Message from '@/components/Message'
+import Message from '@/components/Message';
 
 export default {
   name: 'About',
   components: {
     Message,
   }
-}
+};
 </script>
 
 <style scoped>
