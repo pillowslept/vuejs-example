@@ -4,7 +4,7 @@
     <hr />
     <div class="options">
       <span class="option">Add</span>
-      <span class="option">Mark completed</span>
+      <span class="option">Mark as completed</span>
       <span class="option">Delete</span>
       <span class="option">Filter by states</span>
     </div>

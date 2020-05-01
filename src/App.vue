@@ -33,6 +33,10 @@
     .main-container {
       width: 70%;
     }
+
+    button {
+      padding: 6px 10px !important;
+    }
   }
 
   @media only screen and (max-width: 500px) {
