@@ -10,6 +10,7 @@
 
 <script>
 // @ is an alias to /src
+import { v4 as uuidv4 } from 'uuid'
 import AddTodo from '@/components/AddTodo'
 import TodosList from '@/components/TodosList'
 import TodoActions from '@/components/TodoActions'
@@ -17,28 +18,9 @@ import Message from '@/components/Message'
 
 export default {
   name: 'Home',
-  created() {
-    this.todos = [...this.allTodos];
-  },
   data() {
     return {
-      allTodos: [
-        {
-          id: 1,
-          name: 'Take a walk',
-          isCompleted: false,
-        },
-        {
-          id: 2,
-          name: 'Take a shower',
-          isCompleted: true,
-        },
-        {
-          id: 3,
-          name: 'Go to sleep',
-          isCompleted: false,
-        }
-      ],
+      allTodos: [],
       todos: [],
       filter: ''
     }
@@ -51,7 +33,7 @@ export default {
   },
   methods: {
     addTodo(todo) {
-      this.allTodos = [...this.allTodos, { ...todo, id: Math.floor(Math.random() * 100) }];
+      this.allTodos = [...this.allTodos, { ...todo, id: uuidv4() }];
       this.updateFilters();
     },
     deleteTodo(todo) {
