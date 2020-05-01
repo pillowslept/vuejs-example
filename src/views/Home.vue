@@ -30,6 +30,12 @@ export default {
     TodosList,
     Message,
   },
+  mounted() {
+    if (localStorage.allTodos) {
+      this.allTodos = JSON.parse(localStorage.getItem('allTodos'));
+      this.todos = [...this.allTodos];
+    }
+  },
   methods: {
     addTodo(todo) {
       this.allTodos = [...this.allTodos, { ...todo, id: uuidv4() }];
@@ -46,6 +52,7 @@ export default {
     updateFilters() {
       this.todos = this.allTodos.filter(({ isCompleted }) =>
         this.filter === 'completed' ? isCompleted : (this.filter === 'toDo' ? !isCompleted : this.filter === ''));
+      localStorage.setItem('allTodos', JSON.stringify(this.todos));
     }
   }
 };
