@@ -4,7 +4,7 @@
     <TodosList v-bind:todos="todos" v-on:deleteTodo="deleteTodo" />
     <Message v-if="!todos.length" msg="What's to be done" />
     <hr />
-    <TodoActions />
+    <TodoActions v-on:updateFilter="updateFilter" />
   </div>
 </template>
 
@@ -17,9 +17,12 @@ import Message from '@/components/Message'
 
 export default {
   name: 'Home',
+  created() {
+    this.todos = [...this.allTodos];
+  },
   data() {
     return {
-      todos: [
+      allTodos: [
         {
           id: 1,
           name: 'Take a walk',
@@ -35,7 +38,9 @@ export default {
           name: 'Go to sleep',
           isCompleted: false,
         }
-      ]
+      ],
+      todos: [],
+      filter: ''
     }
   },
   components: {
@@ -46,10 +51,20 @@ export default {
   },
   methods: {
     addTodo(todo) {
-      this.todos = [...this.todos, { ...todo, id: Math.floor(Math.random() * 100) }]
+      this.allTodos = [...this.allTodos, { ...todo, id: Math.floor(Math.random() * 100) }];
+      this.updateFilters();
     },
     deleteTodo(todo) {
-      this.todos = this.todos.filter(({ id }) => id !== todo.id);
+      this.allTodos = this.allTodos.filter(({ id }) => id !== todo.id);
+      this.updateFilters();
+    },
+    updateFilter(filter) {
+      this.filter = filter;
+      this.updateFilters();
+    },
+    updateFilters() {
+      this.todos = this.allTodos.filter(({ isCompleted }) =>
+        this.filter === 'completed' ? isCompleted : (this.filter === 'toDo' ? !isCompleted : this.filter === ''))
     }
   }
 }

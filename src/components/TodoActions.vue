@@ -1,8 +1,8 @@
 <template>
   <div class="common-actions">
-    <label>All <input v-model="filter" type="radio" value="all" name="filter" @change="updateFilter" /></label>
+    <label>All <input v-model="filter" type="radio" value="" name="filter" @change="updateFilter" /></label>
     <label>Completed <input v-model="filter" type="radio" value="completed" name="filter" @change="updateFilter" /></label>
-    <label>Deleted <input v-model="filter" type="radio" value="deleted" name="filter" @change="updateFilter" /></label>
+    <label>To do <input v-model="filter" type="radio" value="toDo" name="filter" @change="updateFilter" /></label>
   </div>
 </template>
 
@@ -11,7 +11,7 @@
     name: 'TodoActions',
     data() {
       return {
-        filter: 'all'
+        filter: ''
       }
     },
     methods: {
