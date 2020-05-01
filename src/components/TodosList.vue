@@ -1,7 +1,7 @@
 <template>
   <div class="todos">
     <div v-bind:key="todo.id" v-for="todo in todos">
-      <Todo v-bind:todo="todo" />
+      <Todo v-bind:todo="todo" v-on:deleteTodo="deleteTodo" />
     </div>
   </div>
 </template>
@@ -14,6 +14,11 @@
     props: ['todos'],
     components: {
       Todo,
+    },
+    methods: {
+      deleteTodo(todo) {
+        this.$emit('deleteTodo', todo);
+      }
     }
   }
 </script>

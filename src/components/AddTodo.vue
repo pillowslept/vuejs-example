@@ -1,6 +1,6 @@
 <template>
   <div class="add">
-    <input v-model="name" type="text" placeholder="Write the todo name here (5 Characters minimum)" />
+    <input v-on:keyup.enter="addTodo"  v-model="name" type="text" placeholder="Write the todo name here (5 Characters minimum)" />
     <button :disabled="!isValid" @click="addTodo">Add</button>
   </div>
 </template>
@@ -20,16 +20,30 @@
     },
     methods: {
       addTodo() {
-        this.$emit('addTodo', { name: this.name, isCompleted: false });
-        this.name = '';
+        if (this.isValid) {
+          this.$emit('addTodo', { name: this.name, isCompleted: false });
+          this.name = '';
+        }
       }
     },
   }
 </script>
 
 <style scoped>
-  input {
-    width: 80%;
+  .add {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+  }
+
+  input[type=text] {
+    width: 70%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
   }
 
   button {

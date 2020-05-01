@@ -1,9 +1,7 @@
 <template>
   <div class="todo">
-    <div class="info">
-      <input v-model="todo.isCompleted" type="checkbox" />
-      <span class="name" v-bind:class="{ 'completed': todo.isCompleted }">{{ todo.name }}</span>
-    </div>
+    <input v-model="todo.isCompleted" type="checkbox" />
+    <span class="name" v-bind:class="{ 'completed': todo.isCompleted }">{{ todo.name }}</span>
     <button @click="deleteTodo">X</button>
   </div>
 </template>
@@ -24,6 +22,7 @@
   .todo {
     display: flex;
     justify-content: space-between;
+    align-items: center;
     padding: 1rem;
     background-color: #f1f1f1;
     border-bottom: 3px solid white;
@@ -33,6 +32,7 @@
   .name {
     font-weight: bold;
     margin-left: 1rem;
+    margin-right: 1rem;
   }
 
   .completed {

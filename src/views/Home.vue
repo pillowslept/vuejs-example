@@ -1,7 +1,8 @@
 <template>
   <div class="home">
     <AddTodo v-on:addTodo="addTodo" />
-    <TodosList v-bind:todos="todos" />
+    <TodosList v-bind:todos="todos" v-on:deleteTodo="deleteTodo" />
+    <Message v-if="!todos.length" msg="What's to be done" />
     <hr />
     <TodoActions />
   </div>
@@ -12,6 +13,7 @@
 import AddTodo from '@/components/AddTodo'
 import TodosList from '@/components/TodosList'
 import TodoActions from '@/components/TodoActions'
+import Message from '@/components/Message'
 
 export default {
   name: 'Home',
@@ -40,13 +42,14 @@ export default {
     AddTodo,
     TodoActions,
     TodosList,
+    Message,
   },
   methods: {
     addTodo(todo) {
       this.todos = [...this.todos, { ...todo, id: Math.floor(Math.random() * 100) }]
     },
     deleteTodo(todo) {
-      this.todos = this.filter(({ id }) => id !== todo.id);
+      this.todos = this.todos.filter(({ id }) => id !== todo.id);
     }
   }
 }
