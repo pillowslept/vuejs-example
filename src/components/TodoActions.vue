@@ -3,13 +3,30 @@
     <hr />
     <div class="common-actions">
       <label>
-        All <input v-model="filter" type="radio" value="" name="filter" @change="updateFilter" />
-        </label>
-      <label>
-        Completed <input v-model="filter" type="radio" value="completed" name="filter" @change="updateFilter" />
+        All
+        <input
+          v-model="filter"
+          type="radio"
+          value=""
+          name="filter"
+          @change="updateFilter" />
       </label>
       <label>
-        To do <input v-model="filter" type="radio" value="toDo" name="filter" @change="updateFilter" />
+        Completed
+        <input v-model="filter"
+          type="radio"
+          value="completed"
+          name="filter"
+          @change="updateFilter" />
+      </label>
+      <label>
+        To do
+        <input
+          v-model="filter"
+          type="radio"
+          value="toDo"
+          name="filter"
+          @change="updateFilter" />
       </label>
     </div>
     <hr />
@@ -41,6 +58,10 @@ export default {
     display: flex;
     justify-content: space-evenly;
     align-items: center;
+  }
+
+  label {
+    cursor: pointer;
   }
 
   .counter {

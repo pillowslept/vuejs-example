@@ -1,8 +1,14 @@
 <template>
   <div class="todos">
     <transition-group name="list">
-      <div v-bind:key="todo.id" v-for="(todo, index) in todos">
-        <TodoItem :key="index" v-bind:todo="todo" v-on:deleteTodo="deleteTodo" v-on:updateFilters="updateFilters" />
+      <div
+        :key="todo.id"
+        v-for="(todo, index) in todos">
+        <TodoItem
+          :key="index"
+          :todo="todo"
+          @deleteTodo="deleteTodo"
+          @updateFilters="updateFilters" />
       </div>
     </transition-group>
   </div>

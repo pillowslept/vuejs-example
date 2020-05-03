@@ -1,8 +1,14 @@
 <template>
   <div class="todo">
-    <input v-model="todo.isCompleted" @change="updateFilters" type="checkbox" />
-    <span class="name" v-bind:class="{ 'completed': todo.isCompleted }">{{ todo.name }}</span>
-    <button @click="deleteTodo">X</button>
+    <input
+      v-model="todo.isCompleted"
+      @change="updateFilters"
+      type="checkbox" />
+    <span
+      class="name"
+      :class="{ 'completed': todo.isCompleted }">{{ todo.name }}</span>
+    <button
+      @click="deleteTodo">X</button>
   </div>
 </template>
 

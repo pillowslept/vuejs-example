@@ -1,8 +1,12 @@
 <template>
   <div class="add">
-    <input v-on:keyup.enter="addTodo" v-model="name" type="text"
+    <input
+      type="text"
+      v-on:keyup.enter="addTodo" v-model="name"
       placeholder="Write here (5 Characters minimum)" />
-    <button :disabled="!isValid" @click="addTodo">Add</button>
+    <button
+      :disabled="!isValid"
+      @click="addTodo">Add</button>
   </div>
 </template>
 
