@@ -1,19 +1,21 @@
 <template>
   <div class="todos">
-    <div v-bind:key="todo.id" v-for="todo in todos">
-      <Todo v-bind:todo="todo" v-on:deleteTodo="deleteTodo" v-on:updateFilters="updateFilters" />
-    </div>
+    <transition-group name="list">
+      <div v-bind:key="todo.id" v-for="(todo, index) in todos">
+        <TodoItem :key="index" v-bind:todo="todo" v-on:deleteTodo="deleteTodo" v-on:updateFilters="updateFilters" />
+      </div>
+    </transition-group>
   </div>
 </template>
 
 <script>
-import Todo from '@/components/Todo';
+import TodoItem from '@/components/TodoItem';
 
 export default {
   name: 'TodosList',
   props: ['todos'],
   components: {
-    Todo,
+    TodoItem,
   },
   methods: {
     deleteTodo(todo) {
@@ -25,10 +27,17 @@ export default {
   }
 };
 </script>
-
 <style scoped>
   .todos {
     margin-top: 1rem;
     margin-bottom: 1rem;
+  }
+
+  .list-enter-active, .list-leave-active {
+    transition: opacity .5s;
+  }
+
+  .list-enter, .list-leave-to {
+    opacity: 0;
   }
 </style>

@@ -8,7 +8,7 @@
 
 <script>
 export default {
-  name: 'Todo',
+  name: 'TodoItem',
   props: ['todo'],
   methods: {
     deleteTodo() {

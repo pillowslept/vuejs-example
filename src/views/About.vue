@@ -1,6 +1,6 @@
 <template>
   <div class="about">
-    <Message msg="Todos application" />
+    <Message msg="Todos web application" />
     <hr />
     <div class="options">
       <span class="option">Add</span>
@@ -12,7 +12,6 @@
 </template>
 
 <script>
-// @ is an alias to /src
 import Message from '@/components/Message';
 
 export default {
