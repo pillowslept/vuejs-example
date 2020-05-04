@@ -8,16 +8,15 @@
           v-model="filter"
           type="radio"
           value=""
-          name="filter"
-          @change="updateFilter" />
+          name="filter" />
       </label>
       <label>
         Completed
-        <input v-model="filter"
+        <input
+          v-model="filter"
           type="radio"
           value="completed"
-          name="filter"
-          @change="updateFilter" />
+          name="filter" />
       </label>
       <label>
         To do
@@ -25,8 +24,7 @@
           v-model="filter"
           type="radio"
           value="toDo"
-          name="filter"
-          @change="updateFilter" />
+          name="filter" />
       </label>
     </div>
     <hr />
@@ -37,18 +35,20 @@
 </template>
 
 <script>
+import { mapGetters } from 'vuex';
+
 export default {
   name: 'TodoActions',
-  props: ['counter'],
-  data() {
-    return {
-      filter: '',
-    };
-  },
-  methods: {
-    updateFilter() {
-      this.$emit('updateFilter', this.filter);
+  computed: {
+    filter: {
+      get() {
+        return this.$store.state.filter;
+      },
+      set(value) {
+        this.$store.commit('updateFilter', value);
+      }
     },
+    ...mapGetters(['counter', 'selectedFilter']),
   },
 };
 </script>

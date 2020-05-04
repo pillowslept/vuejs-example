@@ -2,7 +2,7 @@
   <div class="todo">
     <input
       v-model="todo.isCompleted"
-      @change="updateFilters"
+      @change="updateTodo"
       type="checkbox" />
     <span
       class="name"
@@ -18,10 +18,10 @@ export default {
   props: ['todo'],
   methods: {
     deleteTodo() {
-      this.$emit('deleteTodo', this.todo);
+      this.$store.dispatch('deleteTodo', this.todo);
     },
-    updateFilters() {
-      this.$emit('updateFilters');
+    updateTodo() {
+      this.$store.dispatch('updateTodo', this.todo);
     }
   }
 };

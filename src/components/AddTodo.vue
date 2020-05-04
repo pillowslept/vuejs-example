@@ -15,7 +15,7 @@ export default {
   name: 'AddTodo',
   data() {
     return {
-      name: ''
+      name: '',
     };
   },
   computed: {
@@ -26,7 +26,7 @@ export default {
   methods: {
     addTodo() {
       if (this.isValid) {
-        this.$emit('addTodo', { name: this.name, isCompleted: false });
+        this.$store.dispatch('addTodo', { name: this.name, isCompleted: false });
         this.name = '';
       }
     }
